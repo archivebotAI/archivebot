@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchiveBot | Free Web AI Robot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="ArchiveBot home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>ArchiveBot</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#chat" data-nav="chat">Chat</a>
+      <a href="#privacy" data-nav="privacy">Privacy Policy</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="account-area">
+      <span class="account-name" id="account-name">Guest mode</span>
+      <button class="ghost-button" id="sign-in-open" type="button">Sign in</button>
+      <button class="primary-small hidden" id="sign-out-button" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="app-shell" aria-labelledby="app-title">
+    <section class="page-view home-view active" id="home-view" data-page="home">
+      <div class="home-layout">
+        <div class="home-copy">
+          <p class="eyebrow">Localhost robot lab</p>
+          <h1 id="app-title">ArchiveBot</h1>
+          <p class="home-lede">A free web AI robot you can use instantly, with optional accounts when you want a named workspace.</p>
+          <div class="home-actions">
+            <a class="primary-link" href="#chat">Start chatting</a>
+            <button class="ghost-button" id="create-account-hero" type="button">Create account</button>
+          </div>
+        </div>
+
+        <div class="home-status panel" aria-label="ArchiveBot status">
+          <div class="system-pill" id="system-status">
+            <span class="status-dot"></span>
+            External AI ready
+          </div>
+          <div class="mini-grid">
+            <div>
+              <span>Access</span>
+              <strong id="access-readout">Guest enabled</strong>
+            </div>
+            <div>
+              <span>Account</span>
+              <strong id="home-account-readout">Optional</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-view workspace" id="chat-view" data-page="chat">
+      <div class="title-row">
+        <div>
+          <p class="eyebrow">Chat workspace</p>
+          <h2>Conversation</h2>
+        </div>
+        <div class="system-pill mobile-status">
+          <span class="status-dot"></span>
+          Free to use
+        </div>
+      </div>
+
+      <div class="console-grid">
+        <section class="panel chat-panel" aria-label="ArchiveBot chat">
+          <div class="panel-header">
+            <div>
+              <h2>ArchiveBot Chat</h2>
+              <p>Use the robot as a guest, or sign in to make the workspace feel more personal.</p>
+            </div>
+            <button class="ghost-button" id="clear-chat" type="button">Clear</button>
+          </div>
+
+          <div class="messages" id="chat-box" aria-live="polite"></div>
+
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="user-input">Message ArchiveBot</label>
+            <input id="user-input" type="text" autocomplete="off" placeholder="Ask ArchiveBot anything..." maxlength="900">
+            <button type="submit" id="send-button">Send</button>
+          </form>
+        </section>
+
+        <aside class="panel telemetry-panel" aria-label="Robot telemetry">
+          <div class="panel-header compact">
+            <div>
+              <h2>Robot State</h2>
+              <p>Live mood, motion, account, and API status.</p>
+            </div>
+          </div>
+          <div class="telemetry-list">
+            <div class="telemetry-item">
+              <span>Mood</span>
+              <strong id="mood-readout">Idle</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>Motion</span>
+              <strong id="motion-readout">Micro-bounce</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>AI Link</span>
+              <strong id="api-readout">Pollinations</strong>
+            </div>
+            <div class="telemetry-item">
+              <span>Signed in as</span>
+              <strong id="auth-readout">Guest</strong>
+            </div>
+          </div>
+          <div class="suggestions" aria-label="Quick prompts">
+            <button type="button" data-prompt="Give me a clever idea for organizing old project files.">Organize ideas</button>
+            <button type="button" data-prompt="Explain quantum computing like I am building a tiny robot.">Explain simply</button>
+            <button type="button" data-prompt="Write a short playful greeting from ArchiveBot.">Robot greeting</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-view info-view" id="privacy-view" data-page="privacy">
+      <div class="info-wrap panel">
+        <p class="eyebrow">Privacy Policy</p>
+        <h2>Privacy Policy</h2>
+        <p>ArchiveBot is built for simple local use. You can chat without creating an account.</p>
+        <div class="info-list">
+          <p><strong>Accounts:</strong> If you create an account, the server stores your name, email, and a protected password hash in a local data file.</p>
+          <p><strong>Chat:</strong> Messages are sent to the local backend, then forwarded to the external AI endpoint so ArchiveBot can reply. Chat history is kept in your browser while the page is open.</p>
+          <p><strong>Sessions:</strong> Sign-in uses a local session cookie so the app remembers you on this browser.</p>
+          <p><strong>Your choice:</strong> You can use the app in guest mode, sign out anytime, and avoid entering personal details beyond account creation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-view info-view" id="contact-view" data-page="contact">
+      <div class="info-wrap panel">
+        <p class="eyebrow">Contact</p>
+        <h2>Contact ArchiveBot</h2>
+        <p>Need help, feedback, or a place to send ideas? Use either option below.</p>
+        <div class="contact-actions">
+          <a class="contact-card" href="mailto:contact@archivebot.local">
+            <span>Email</span>
+            <strong>contact@archivebot.local</strong>
+          </a>
+          <a class="contact-card discord" href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+            <span>Discord</span>
+            <strong>Join Discord</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="archivebot-widget" aria-label="ArchiveBot robot">
+    <div class="speech-bubble" id="robot-bubble">Systems warm. Ready when you are.</div>
+    <div class="robot mood-idle" id="robot" role="img" aria-label="Animated desktop robot">
+      <div class="antenna">
+        <span></span>
+      </div>
+      <div class="head">
+        <div class="face-screen">
+          <div class="eyes">
+            <span class="eye left-eye"></span>
+            <span class="eye right-eye"></span>
+          </div>
+          <div class="mouth" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="neck"></div>
+      <div class="body">
+        <div class="core-light"></div>
+        <div class="body-line"></div>
+        <div class="feet">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="auth-modal hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="auth-card panel">
+      <div class="auth-header">
+        <div>
+          <p class="eyebrow" id="auth-mode-label">Welcome back</p>
+          <h2 id="auth-title">Sign in</h2>
+        </div>
+        <button class="icon-button" id="auth-close" type="button" aria-label="Close account dialog">x</button>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Account actions">
+        <button class="active" type="button" data-auth-mode="signin">Sign in</button>
+        <button type="button" data-auth-mode="signup">Create account</button>
+      </div>
+
+      <form class="auth-form" id="auth-form">
+        <label class="signup-only hidden" for="auth-name">Name</label>
+        <input class="signup-only hidden" id="auth-name" name="name" type="text" autocomplete="name" placeholder="Your name" maxlength="40">
+
+        <label for="auth-email">Email</label>
+        <input id="auth-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="120" required>
+
+        <label for="auth-password">Password</label>
+        <input id="auth-password" name="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" maxlength="120" required>
+
+        <p class="form-message" id="auth-message" aria-live="polite"></p>
+        <button class="primary-action" id="auth-submit" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
